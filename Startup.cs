@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using BangazonAPI.Data;
+using SafeHavenAPI.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace BangazonAPI
+namespace SafeHavenAPI
 {
     public class Startup
     {
@@ -43,10 +43,10 @@ namespace BangazonAPI
             services.AddMvc();
 
 
-            string path = System.Environment.GetEnvironmentVariable("BANGAZON_DB");
+            string path = System.Environment.GetEnvironmentVariable("SAFEHAVEN_API_DB");
             var connection = $"Filename={path}";
             Console.WriteLine($"connection = {connection}");
-            services.AddDbContext<BangazonContext>(options => options.UseSqlite(connection));
+            services.AddDbContext<SafeHavenAPIContext>(options => options.UseSqlite(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

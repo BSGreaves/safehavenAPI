@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using BangazonAPI.Models;
+using SafeHavenAPI.Models;
 
-namespace BangazonAPI.Data
+namespace SafeHavenAPI.Data
 {
-    public class BangazonContext : DbContext
+    public class SafeHavenAPIContext : DbContext
     {
-        public BangazonContext(DbContextOptions<BangazonContext> options)
+        public SafeHavenAPIContext(DbContextOptions<SafeHavenAPIContext> options)
             : base(options)
         { }
 
