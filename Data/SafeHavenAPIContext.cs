@@ -9,12 +9,18 @@ namespace SafeHavenAPI.Data
             : base(options)
         { }
 
-        public DbSet<Order> Order { get; set; }
-        public DbSet<OrderProduct> OrderProduct { get; set; }
-
+        public DbSet<User> User { get; set; }
+        public DbSet<AccessRight> AccessRight { get; set; }
+        public DbSet<Document> Document { get; set; }
+        public DbSet<DocumentType> DocumentType { get; set; }
+        public DbSet<Image> Image { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Order>()
+            modelBuilder.Entity<Document>()
+                .Property(b => b.DateCreated)
+                .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
+
+            modelBuilder.Entity<Image>()
                 .Property(b => b.DateCreated)
                 .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
         }
