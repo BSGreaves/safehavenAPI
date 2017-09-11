@@ -5,23 +5,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SafeHavenAPI.Models
 {
-  public class Order
+  public class Document
   {
     [Key]
-    public int OrderId { get; set; }
-
+    public int DocumentID { get; set; }
     [Required]
     [DataType(DataType.Date)]
     [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
     public DateTime DateCreated { get; set; }
-
     [Required]
-    public int CustomerId { get; set; }
-    public Customer Customer { get; set; }
-    public int? PaymentTypeId { get; set;} // ? means that the variable can be null
-    public PaymentType PaymentType { get; set; }
-
-    public ICollection<OrderProduct> OrderProducts;
-
+    public string Title { get; set; }
+    [Required]
+    public int DocumentTypeID {get; set; }
+    public DocumentType DocumentType { get; set; }
+    public string PhysicalLocation {get; set; }
+    public string Notes {get; set; }
   }
 }
